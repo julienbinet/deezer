@@ -1,0 +1,39 @@
+.tops{
+  h3 {
+    margin-bottom: 20px;
+  }
+  li {
+    max-height: 81px;
+    border-top: 1px solid #ccc;
+    margin: 5px 0;
+    padding: 10px 0 3px;
+  }
+  span{
+    line-height: 64px;
+    margin-right: 15px;
+    vertical-align: top;
+  }
+  a{
+   line-height: 64px;
+   margin-left: 15px;
+   vertical-align: top;
+ }
+ .artists{
+ }
+.tracks{
+  span, img, a{display:inline-block}
+  a{
+    line-height: 64px;
+    vertical-align: top;  
+  }
+  .nom{
+   color:#777;
+    margin-left: 0;
+  }
+  .titre{
+    &:after{
+     content : " - ";
+    }
+  }
+}
+}

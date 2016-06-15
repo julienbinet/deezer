@@ -1,0 +1,65 @@
+<div class="row fiche" loading="loading">
+
+  <div class="col-md-12">
+
+    <div class="row">
+      <div class="fiche-header col-md-6">
+        <img src='{{artist.picture_medium}}' alt="{{artist.name}}" class="img-circle pull-left">
+        <div class="infos">
+          <h3>{{artist.name}}</h3>
+
+        </div>
+      </div>
+
+      <div ng-repeat="track in tracks | limitTo : 1" class="col-md-6">
+        <player idtrack="track.id">contenu</player>
+      </div>
+    </div>
+
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active"><a data-target="#titres" aria-controls="titres" role="tab" data-toggle="tab">Top Titres</a></li>
+      <li role="presentation"><a data-target="#albums" aria-controls="albums" role="tab" data-toggle="tab">Discographie</a></li>
+      <li role="presentation"><a data-target="#artistes-similaire" aria-controls="artistes-similaire" role="tab" data-toggle="tab">Artistes Similaires</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane active col-md-6" id="titres">
+        <div ng-repeat="track in tracks" class="">
+          {{track.title_short}}<span class="pull-right">{{track.duration | secondsToDateTime | date:'mm:ss'}}</span>
+        </div>
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="albums">
+        <div class="albums flexbox-content">
+
+          <div ng-repeat="album in albums" class="album">
+            <div class="content-image">
+              <img src='{{album.cover_medium}}' alt="{{album.title}}" class="img-responsive">
+              <a ng-href="/#/album/{{album.id}}" class="cover-link"></a>
+            </div>
+            <a ng-href="/#/album/{{album.id}}" class="nom">{{album.title}}</a>
+          </div>
+        </div>
+      </div>
+
+      <div role="tabpanel" class="tab-pane" id="artistes-similaire">
+        <div class="list-artist flexbox-content">
+          <div ng-repeat="artistSimilar in similarArtists" class="artist col-xs-5 col-md-2">
+            <div class="content-image">
+              <img src='{{artistSimilar.picture_medium}}' alt="{{artistSimilar.name}}" class="img-responsive">
+            </div>
+            <a ng-href="/#/artiste/{{artistSimilar.id}}" class="nom">{{artistSimilar.name}}</a>
+            <a ng-href="/#/artiste/{{artistSimilar.id}}" class="cover-link"></a>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>

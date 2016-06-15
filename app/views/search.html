@@ -1,0 +1,71 @@
+<div class="row search" loading="loading">
+
+  <div class="col-md-12">
+
+    <div class="title-1">Résultats pour la recherche : {{text}}</div> <span ng-model="text"></span>
+
+
+    <h3>Artistes</h3>
+
+    <span ng-if="artists.length == 0" class="animate-if">
+      Aucun résultat trouvé.
+    </span>
+
+    <div class="list-artist flexbox-content">
+      <div ng-repeat="artist in artists" class="artist col-xs-5 col-md-2">
+        <div class="content-image">
+          <img src='{{artist.picture_medium}}' alt="{{artist.name}}" class="img-responsive">
+        </div>
+        <a ng-href="/#/artiste/{{artist.id}}" class="nom">{{artist.name}}</a>
+        <a ng-href="/#/artiste/{{artist.id}}" class="cover-link"></a>
+
+      </div>
+
+    </div>
+
+
+
+    <h3>Albums</h3>
+
+    <span ng-if="albums.length == 0" class="animate-if">
+      Aucun résultat trouvé.
+    </span>
+
+    <div class="albums flexbox-content">
+
+      <div ng-repeat="album in albums" class="album col-xs-5 col-md-2">
+        <div class="content-image">
+          <img src='{{album.cover_medium}}' alt="{{album.title}}" class="img-responsive">
+          <a ng-href="/#/album/{{album.id}}" class="cover-link"></a>
+        </div>
+        <a ng-href="/#/album/{{album.id}}" class="nom">{{album.title}}</a>
+      </div>
+    </div>
+
+    <h3>Titres</h3>
+    <span ng-if="tracks.length == 0" class="animate-if">
+      Aucun résultat trouvé.
+    </span>
+
+
+    <span ng-if="tracks.length != 0" class="animate-if">
+      <div class="col-md-6">
+        <table class="table table-condensed"> 
+          <thead> 
+            <tr>
+             <th>Nom</th> <th>Artiste</th> <th>Album</th> </tr> 
+           </thead> 
+           <tbody> 
+            <tr  ng-repeat="track in tracks">
+             <td>{{track.title_short}}</td>
+             <td><a ng-href="/#/artiste/{{track.artist.id}}">{{track.artist.name}}</a></td> 
+             <td><a ng-href="/#/album/{{track.album.id}}">{{track.album.title}}</a></td>
+           </tr> 
+         </tbody> 
+       </table>
+     </div>
+   </span>
+
+
+
+ </div>

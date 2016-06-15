@@ -1,0 +1,29 @@
+<div class="row fiche album" loading="loading">
+
+  <div class="col-md-12">
+
+    <div class="fiche-header clearfix">
+      <img src='{{album.cover_medium}}' alt="{{album.title}}" class="img-responsive pull-left">
+      <div class="infos">
+        <h3>{{album.title}}</h3>
+        <a ng-href="/#/artiste/{{album.artist.id}}" class="nom-artiste">{{album.artist.name}}</a>
+        <div class="tags">
+         <span ng-repeat="tag in album.genres.data" class="">{{tag.name}}<span ng-hide="$last">, </span></span>
+       </div>
+       <div class="date-sortie">Sorti le : {{album.release_date | date:'dd/MM/yyyy'}}</div>
+     </div>
+   </div>
+
+
+   <h4>Liste des titres</h4>
+
+   <div class="titres col-md-6">
+    <div class="titre" ng-repeat="(key, track) in album.tracks.data">
+      {{key + 1}}. {{track.title_short}} 
+      <span class="pull-right">{{track.duration | secondsToDateTime | date:'mm:ss'}}</span>
+    </div>
+  </div>
+
+</div>
+
+</div>

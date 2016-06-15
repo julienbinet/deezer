@@ -1,0 +1,17 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+@import 'compass';
+@include global-reset;
+
+
+@import "base/base";
+@import "modules/header";
+@import "modules/tops";
+@import "modules/footer";
+@import "modules/artist";
+@import "modules/album";
+@import "modules/search";
+
